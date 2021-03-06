@@ -1,6 +1,6 @@
 # This script focuses on acquiring disk space info:
 
-Get-WmiObject Win32_Logicaldisk|
+Get-WmiObject Win32_Logicaldisk |
 Select PSComputername,DeviceID, FileSystem, VolumeName, 
 @{Name="Size(GB)";Expression={$_.Size/1GB -as [int]}},
 @{Name="Free(GB)";Expression={[math]::Round($_.Freespace/1GB,2)}}
